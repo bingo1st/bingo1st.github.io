@@ -355,9 +355,9 @@ Full-Width Styles
 }
 
 #main_content_wrap {
-  background: #00b877;
-  border-top: 1px solid #00b877;
-  border-bottom: 1px solid #00b877;
+  background: #f2f2f2;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
 }
 
 #main_content {
@@ -365,7 +365,7 @@ Full-Width Styles
 }
 
 #footer_wrap {
-  background: #212121;
+  background: #00b877;
 }
 
 
