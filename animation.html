@@ -195,7 +195,7 @@
             if(_item.elements){
                 _elements = _item.elements;
                 $.each(_elements, function(_j) {
-                    _pics += "<img style='animation-duration: " + _elements[_j].duration + "s;top:"  + _elements[_j].top + "px;left:" + _elements[_j].left + "px;' src='images/pics/" + _elements[_j].src + "' class='animation-mark animated " + _elements[_j].animation + "'/>";
+                    _pics += "<img style='animation-duration: " + _elements[_j].duration + "s;top:"  + _elements[_j].top + "px;left:" + _elements[_j].left + "px;' src='images/pics/" + _elements[_j].src + "' class='animation-mark " + _elements[_j].animation + "'/>";
                 });
             }
 
@@ -224,14 +224,14 @@
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
-                
+                $(".section1 .animation-mark").addClass("animated");
             },
             afterLoad: function(anchorLink, index){
                 
             },
             onLeave: function(index, nextIndex, direction){
                 $(".animation-mark").removeClass("animated");
-                $(".section" + (nextIndex ) + " .animation-mark").addClass("animated");
+                $(".section" + nextIndex + " .animation-mark").addClass("animated");
             }
         });
     }
