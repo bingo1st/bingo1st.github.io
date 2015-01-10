@@ -98,7 +98,7 @@
     opacity: 0;
   }
 }
-.animated.animated.flash {
+.animated.flash {
   -webkit-animation-name: flash;
           animation-name: flash;
 }
