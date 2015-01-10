@@ -93,6 +93,7 @@ html, body {
     margin-top: -32px;
     top: 50%;
     opacity: 1;
+    display: none;
 }
 #fp-nav.right {
     right: 17px;

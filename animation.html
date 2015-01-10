@@ -8,26 +8,146 @@
 		<meta name="keywords" content="scroller, jquery one page scroll, onepagescroll, animated scrolling" />
 		<meta name="author" content="Apollo" />
 		<link rel="shortcut icon" id="favicon" href="favicon.png"> 
-<!-- 		<link rel="stylesheet" type="text/css" href="css/all-animation.css" />
-		 -->
+        <link rel="stylesheet" type="text/css" href="css/all-animation.css" />
 		<!-- Edit Below -->
-		<script type="text/javascript" src="js/jquery-min-1.11.1.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
 	    <script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
 	    <link rel="stylesheet" type="text/css" href="css/style.css" />
 	    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 	</head>
 	<body>	
 	<div id="fullpage">
-	    <div class="section">Some section</div>
-	    <div class="section">Some section</div>
-	    <div class="section">Some section</div>
-	    <div class="section">Some section</div>
-        <div class="section">Some section</div>
 	</div>
 	<script type="text/javascript">
+    var config = [
+        {
+            "question": "喜洋洋和灰太郎，谁更聪明？",
+            "options": ["喜洋洋", "灰太郎", "不知道"],
+            "background" : "#66dfc0",
+            "elements": 
+            [
+                {
+                    "src":"1.jpg",
+                    "left": 10,
+                    "top": 50,
+                    "animation": "slideInRight",
+                    "duration": 1
+                },
+                {
+                    "src":"2.jpg",
+                    "left": 100,
+                    "top": 50,
+                    "animation": "flipInY",
+                    "duration": 1
+                },
+                {
+                    "src":"3.jpg",
+                    "left": 200,
+                    "top": 50,
+                    "animation": "rotateIn",
+                    "duration": 1
+                }
+            ]
+        },
+        {
+            "question": "喜洋洋和灰太郎，谁更聪明？",
+            "options": ["喜洋洋", "灰太郎", "不知道"],
+            "background" : "#d5f525",
+            "elements": 
+            [
+                {
+                    "src":"1.jpg",
+                    "left": 10,
+                    "top": 50,
+                    "animation": "bounce",
+                    "duration": 1
+                },
+                {
+                    "src":"2.jpg",
+                    "left": 100,
+                    "top": 50,
+                    "animation": "bounce",
+                    "duration": 1
+                },
+                {
+                    "src":"3.jpg",
+                    "left": 200,
+                    "top": 50,
+                    "animation": "bounce",
+                    "duration": 1
+                }
+            ]
+        },
+        {
+            "question": "喜洋洋和灰太郎，谁更聪明？",
+            "options": ["喜洋洋", "灰太郎", "不知道"],
+            "background" : "#66dfc0",
+            "elements": 
+            [
+                {
+                    "src":"1.jpg",
+                    "left": 10,
+                    "top": 50,
+                    "animation": "slideInRight",
+                    "duration": 1
+                },
+                {
+                    "src":"2.jpg",
+                    "left": 100,
+                    "top": 50,
+                    "animation": "flipInY",
+                    "duration": 1
+                },
+                {
+                    "src":"3.jpg",
+                    "left": 200,
+                    "top": 50,
+                    "animation": "rotateIn",
+                    "duration": 1
+                }
+            ]
+        }
+    ];
     $(document).ready(function() {
-        $('#fullpage').fullpage({
-            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+        config && config.length && initPages();
+    });
+	
+    function initPages(){
+        var _html     = "";
+        var _content  = "";
+        var _i        = 0;
+        var _item     = null;
+        var _options  = null;
+        var _elements = null;
+        var _pics     = "";
+        var _container = $('#fullpage');
+
+        while(config[_i]){
+            _item = config[_i];
+            if(_item.question && _item.options){
+                _options = _item.options;
+                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2>";
+                $.each(_options, function(_j) {     
+                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
+                }); 
+            }
+            if(_item.elements){
+                _elements = _item.elements;
+                $.each(_elements, function(_j) {
+                    _pics += "<img style='animation-duration: " + _elements[_j].duration + "s;top:"  + _elements[_j].top + "px;left:" + _elements[_j].left + "px;' src='images/pics/" + _elements[_j].src + "' class='animation-mark animated " + _elements[_j].animation + "'/>";
+                });
+            }
+
+            _html += "<div class='section section" + (_i + 1) + "'>" + 
+                        _content + 
+                        _pics +
+                     "</div>";
+            _i++;
+        }
+
+        _container.html(_html);
+
+        _container.fullpage({
             navigation: true,
             navigationPosition: 'right',
             css3: true,
@@ -37,68 +157,20 @@
             touchSensitivity: 2,
             controlArrows: true,
             aotoScrolling: false,
-            verticalCentered: true,
+            verticalCentered: false,
             resize : true,
-            sectionsColor : ['pink', 'orange','green','red', 'yellow'],
-            navigationTooltips: ['firstSlide', 'secondSlide', 'secondSlide', 'secondSlide', 'secondSlide'],
+            sectionsColor : ['#66dfc0', '#d5f525','#43c2ef','#ff72ab', '#ecec2c'],
             normalScrollElementTouchThreshold: 5,
-            afterRender: function(){$.fn.fullpage.reBuild();}
+            afterRender: function(){
+                setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
+                $(".section1 .animation-mark").addClass("animated");
+            },
+            afterLoad: function(anchorLink, index){
+                $(".animation-mark").removeClass("animated");
+                $(".section" + index + " .animation-mark").addClass("animated");
+            }
         });
-    });
-	   /*$(document).ready(function() {
-            $('#fullpage').fullpage({
-                //Navigation
-                menu: true,
-                anchors:['firstSlide', 'secondSlide', 'seco3ndSlide', 'seco4ndSlide'],
-                navigation: true,
-                navigationPosition: 'right',
-                navigationTooltips: ['firstSlide', 'secondSlide', 'secondSlide', 'secondSlide'],
-                slidesNavigation: true,
-                slidesNavPosition: 'bottom',
-
-                //Scrolling
-                css3: true,
-                scrollingSpeed: 700,
-                autoScrolling: false,
-                scrollBar: false,
-                easing: "cubic-bezier(0.175, 0.885, 0.420, 1.310)",
-                easingcss3: 'ease',
-                loopBottom: true,
-                loopTop: false,
-                loopHorizontal: true,
-                continuousVertical: false,
-                normalScrollElements: '#element1, .element2',
-                scrollOverflow: false,
-                touchSensitivity: 15,
-                normalScrollElementTouchThreshold: 5,
-
-                //Accessibility
-                keyboardScrolling: true,
-                animateAnchor: true,
-
-                //Design
-                controlArrows: true,
-                verticalCentered: true,
-                resize : true,
-                sectionsColor : ['#ccc', '#fff'],
-                paddingTop: '3em',
-                paddingBottom: '10px',
-                fixedElements: '#header, .footer',
-                responsive: 0,
-
-                //Custom selectors
-                sectionSelector: '.section',
-                slideSelector: '.slide',
-
-                //events
-                onLeave: function(index, nextIndex, direction){},
-                afterLoad: function(anchorLink, index){},
-                afterRender: function(){},
-                afterResize: function(){},
-                afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
-                onSlideLeave: function(anchorLink, index, slideIndex, direction){}
-            });
-        });*/
+    }
   	</script>
 		
 	</body>
