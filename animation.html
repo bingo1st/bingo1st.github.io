@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="demo2">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>答题赢大奖</title>
+		<meta name="description" content="The plugin will detect your mouse wheel and swipe gestures to determine which way the page should scroll." />
+		<meta name="keywords" content="scroller, jquery one page scroll, onepagescroll, animated scrolling" />
+		<meta name="author" content="Apollo" />
+		<link rel="shortcut icon" id="favicon" href="favicon.png"> 
+<!-- 		<link rel="stylesheet" type="text/css" href="css/all-animation.css" />
+		 -->
+		<!-- Edit Below -->
+		<script type="text/javascript" src="js/jquery-min-1.11.1.js"></script>
+	    <script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+	</head>
+	<body>	
+	<div id="fullpage">
+	    <div class="section">Some section</div>
+	    <div class="section">Some section</div>
+	    <div class="section">Some section</div>
+	    <div class="section">Some section</div>
+        <div class="section">Some section</div>
+	</div>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+            navigation: true,
+            navigationPosition: 'right',
+            css3: true,
+            scrollingSpeed: 300,
+            easingcss3: "cubic-bezier(0.175, 0.885, 0.420, 1.310)",
+            scrollOverflow: true,
+            touchSensitivity: 2,
+            controlArrows: true,
+            aotoScrolling: false,
+            verticalCentered: true,
+            resize : true,
+            sectionsColor : ['pink', 'orange','green','red', 'yellow'],
+            navigationTooltips: ['firstSlide', 'secondSlide', 'secondSlide', 'secondSlide', 'secondSlide'],
+            normalScrollElementTouchThreshold: 5,
+            afterRender: function(){$.fn.fullpage.reBuild();}
+        });
+    });
+	   /*$(document).ready(function() {
+            $('#fullpage').fullpage({
+                //Navigation
+                menu: true,
+                anchors:['firstSlide', 'secondSlide', 'seco3ndSlide', 'seco4ndSlide'],
+                navigation: true,
+                navigationPosition: 'right',
+                navigationTooltips: ['firstSlide', 'secondSlide', 'secondSlide', 'secondSlide'],
+                slidesNavigation: true,
+                slidesNavPosition: 'bottom',
+
+                //Scrolling
+                css3: true,
+                scrollingSpeed: 700,
+                autoScrolling: false,
+                scrollBar: false,
+                easing: "cubic-bezier(0.175, 0.885, 0.420, 1.310)",
+                easingcss3: 'ease',
+                loopBottom: true,
+                loopTop: false,
+                loopHorizontal: true,
+                continuousVertical: false,
+                normalScrollElements: '#element1, .element2',
+                scrollOverflow: false,
+                touchSensitivity: 15,
+                normalScrollElementTouchThreshold: 5,
+
+                //Accessibility
+                keyboardScrolling: true,
+                animateAnchor: true,
+
+                //Design
+                controlArrows: true,
+                verticalCentered: true,
+                resize : true,
+                sectionsColor : ['#ccc', '#fff'],
+                paddingTop: '3em',
+                paddingBottom: '10px',
+                fixedElements: '#header, .footer',
+                responsive: 0,
+
+                //Custom selectors
+                sectionSelector: '.section',
+                slideSelector: '.slide',
+
+                //events
+                onLeave: function(index, nextIndex, direction){},
+                afterLoad: function(anchorLink, index){},
+                afterRender: function(){},
+                afterResize: function(){},
+                afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+                onSlideLeave: function(anchorLink, index, slideIndex, direction){}
+            });
+        });*/
+  	</script>
+		
+	</body>
+</html>
