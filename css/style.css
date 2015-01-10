@@ -50,3 +50,7 @@ body{
 .animated{
   opacity: 1;
 }
+.section{
+  padding: 0 20px;
+  color: #fff;
+}
