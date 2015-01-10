@@ -66,14 +66,14 @@
                     "src":"2.png",
                     "left": 100,
                     "top": 50,
-                    "animation": "bounce",
+                    "animation": "hinge",
                     "duration": 1
                 },
                 {
                     "src":"3.png",
                     "left": 200,
                     "top": 50,
-                    "animation": "bounce",
+                    "animation": "tada",
                     "duration": 1
                 }
             ]
@@ -124,6 +124,9 @@
 
         while(config[_i]){
             _item = config[_i];
+            _pics = "";
+            _content = "";
+
             if(_item.question && _item.options){
                 _options = _item.options;
                 _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2>";
@@ -163,11 +166,14 @@
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
-                $(".section1 .animation-mark").addClass("animated");
+                
             },
             afterLoad: function(anchorLink, index){
+                
+            },
+            onLeave: function(index, nextIndex, direction){
                 $(".animation-mark").removeClass("animated");
-                $(".section" + index + " .animation-mark").addClass("animated");
+                $(".section" + (nextIndex ) + " .animation-mark").addClass("animated");
             }
         });
     }
