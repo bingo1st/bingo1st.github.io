@@ -187,9 +187,9 @@
 
             if(_item.question && _item.options){
                 _options = _item.options;
-                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2>";
+                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2><br/>";
                 $.each(_options, function(_j) {     
-                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
+                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label><br/>"; 
                 }); 
             }
             if(_item.elements){
@@ -200,7 +200,7 @@
             }
 
             _html += "<div class='section section" + (_i + 1) + "'>" + 
-                        _content + 
+                        _content + '<br/>' +
                         _pics +
                      "</div>";
             _i++;
