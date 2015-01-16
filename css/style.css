@@ -36,6 +36,8 @@ input, textarea, select, button {
     font-family: inherit; 
 } 
 
+.touchstyle-headphone{-webkit-box-sizing:border-box;position:fixed;top:20px;right:20px;z-index:9999;width:32px;height:32px;border:2px solid rgba(255, 255, 255, 0);background-color:rgba(0,0,0,.3);-webkit-background-size:20px 20px;-webkit-border-radius:16px 16px;cursor:pointer;}.touchstyle-headphone>.icon{margin:4px 0 0 5px;width:14px;height:14px;border:2px solid rgba(255, 255, 255, 0.9);border-radius:50px 50px 0 0;border-bottom:none;}.touchstyle-headphone>.icon:before{position:absolute;content:"";top:14px;left:8px;width:4px;height:8px;background-color:rgba(255, 255, 255, 0.9);border-radius:0 2px 2px 0;}.touchstyle-headphone>.icon:after{position:absolute;content:"";top:14px;left:16px;width:4px;height:8px;background:rgba(255, 255, 255, 0.9);border-radius:2px 0 0 2px;}@-webkit-keyframes touchstyle-music-paly-animate { from {-webkit-transform:rotate(0deg);} to {-webkit-transform:rotate(360deg);} }
+
 body{
   font-family:"微软雅黑";
   background: url('../images/logo_bg.jpg') 50% 50% no-repeat;
