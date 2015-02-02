@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>钟意创意DEMO</title>
+		<title>城市生存挑战赛-H5小游戏</title>
 		<meta name="description" content="The plugin will detect your mouse wheel and swipe gestures to determine which way the page should scroll." />
 		<meta name="keywords" content="scroller, jquery one page scroll, onepagescroll, animated scrolling" />
 		<meta name="author" content="Apollo" />
@@ -21,38 +21,50 @@
 	<script type="text/javascript">
     var config = [
         {
-            "question": "钟意创意的动画看过没？",
-            "options": ["看过,很棒", "听过", "孤陋寡闻"],
-            "background" : "#66dfc0",
+            "question": "楼梯陡、门口窄，太容易发生踩踏事故找谁？",
+            "options": ["规划局", "日料店", "安监局"],
+            "background" : "#fff",//"#66dfc0",
             "elements": 
             [
                 {
-                    "src":"1.png",
-                    "left": 10,
-                    "top": 50,
-                    "animation": "slideInRight",
+                    "src":"1_0.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "zoomInUp",
                     "duration": 1
                 },
                 {
-                    "src":"2.png",
-                    "left": 100,
-                    "top": 50,
-                    "animation": "slideInRight",
-                    "duration": 1
+                    "src":"1_1.png",
+                    "left": "40%",
+                    "top": "34%",
+                    "width": "25%",
+                    "animation": "rubberBand",
+                    "duration": 1,
+                    "delay": 1.2
                 },
                 {
-                    "src":"3.png",
-                    "left": 200,
-                    "top": 50,
-                    "animation": "rotateIn",
-                    "duration": 1
+                    "src":"1_2.png",
+                    "left": "49%",
+                    "top": "8%",
+                    "width": "35%",
+                    "animation": "wobble",
+                    "duration": .7,
+                    "delay": 1
+                },
+                {
+                    "src":"bg_questions.png",
+                    "left": "0",
+                    "bottom": "0",
+                    "animation": "flipInY",
+                    "duration": .5,
+                    "delay": 2
                 }
             ]
         },
         {
             "question": "喜洋洋和灰太郎，谁更聪明？",
             "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#d5f525",
+            "background" : "#fff",//"#d5f525",
             "elements": 
             [
                 {
@@ -81,7 +93,7 @@
         {
             "question": "喜洋洋和灰太郎，谁更聪明？",
             "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#66dfc0",
+            "background" : "#fff",//"#66dfc0",
             "elements": 
             [
                 {
@@ -110,7 +122,7 @@
         {
             "question": "喜洋洋和灰太郎，谁更聪明？",
             "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#66dfc0",
+            "background" : "#fff",//"#66dfc0",
             "elements": 
             [
                 {
@@ -187,20 +199,42 @@
 
             if(_item.question && _item.options){
                 _options = _item.options;
-                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2><br/>";
+                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2><br/><br/>";
                 $.each(_options, function(_j) {     
-                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label><br/>"; 
+                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
                 }); 
             }
             if(_item.elements){
                 _elements = _item.elements;
                 $.each(_elements, function(_j) {
-                    _pics += "<img style='animation-duration: " + _elements[_j].duration + "s;top:"  + _elements[_j].top + "px;left:" + _elements[_j].left + "px;' src='images/pics/" + _elements[_j].src + "' class='animation-mark " + _elements[_j].animation + "'/>";
+                    _elements[_j].zIndex = (_elements[_j].zIndex ? _elements[_j].zIndex : 0);
+                    _elements[_j].width = (_elements[_j].width ? _elements[_j].width : "100%");
+                    _elements[_j].top = (_elements[_j].top ? _elements[_j].top : "auto");
+                    _elements[_j].left = (_elements[_j].left ? _elements[_j].left : "auto");
+                    _elements[_j].right = (_elements[_j].right ? _elements[_j].right : "auto");
+                    _elements[_j].bottom = (_elements[_j].bottom ? _elements[_j].bottom : "auto");
+                    _elements[_j].delay = (_elements[_j].delay ? _elements[_j].delay : "0");
+                    _elements[_j].opacity = (_elements[_j].delay ? "0" : "1");
+
+
+                    _pics += "<img style='animation-duration: " + _elements[_j].duration + 
+                            "s;-webkit-animation-duration:" + _elements[_j].duration +
+                            "s;animation-delay:" + _elements[_j].delay +
+                            "s;-webkit-animation-delay:" + _elements[_j].delay + 
+                            "s;top:"  + _elements[_j].top + 
+                            ";opacity:" + _elements[_j].opacity + 
+                            ";left:" + _elements[_j].left + 
+                            ";right:" + _elements[_j].right + 
+                            ";bottom:" + _elements[_j].bottom + 
+                            ";z-index:" + _elements[_j].zIndex + 
+                            ";width:" + _elements[_j].width + 
+                            ";' src='images/pics/" + _elements[_j].src + 
+                            "' class='animation-mark " + _elements[_j].animation + "'/>";
                 });
             }
 
-            _html += "<div class='section section" + (_i + 1) + "'>" + 
-                        _content + '<br/>' +
+            _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark fadeIn'"+
+                        _content + '</div>' +
                         _pics +
                      "</div>";
             _i++;
@@ -209,7 +243,7 @@
         _container.html(_html);
 
         _container.fullpage({
-            navigation: true,
+            navigation: false,
             navigationPosition: 'right',
             css3: true,
             scrollingSpeed: 300,
@@ -220,7 +254,7 @@
             aotoScrolling: false,
             verticalCentered: true,
             resize : true,
-            sectionsColor : ['#66dfc0', '#d5f525','#43c2ef','#ff72ab', '#ecec2c'],
+            sectionsColor : ['#799475', '#d5f525','#43c2ef','#ff72ab', '#ecec2c'],
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
@@ -234,6 +268,8 @@
                 $(".section" + nextIndex + " .animation-mark").addClass("animated");
             }
         });
+
+        $.fn.fullpage.setAllowScrolling(false, 'up');
     }
   	</script>
 		

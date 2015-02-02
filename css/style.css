@@ -50,9 +50,22 @@ body{
   opacity: 0;
 }
 .animated{
-  opacity: 1;
+  opacity: 0;
 }
 .section{
   padding: 0 20px;
   color: #fff;
+}
+.question{
+  width: 60%;
+  position: absolute;
+  bottom: 0;
+  height: 17%;
+  z-index: 100;
+  color: #1f4354;
+  padding: 0 29%;
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  animation-duration: 0.7s;
+  -webkit-animation-duration: 0.7s;
 }

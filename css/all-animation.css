@@ -1,8 +1,8 @@
 .animated {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .animated.infinite {
@@ -148,6 +148,7 @@
   0% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
+            opacity: 0;
   }
 
   30% {
@@ -178,6 +179,7 @@
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
+            opacity: 1;
   }
 }
 
@@ -185,6 +187,7 @@
   0% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
+            opacity: 0;
   }
 
   30% {
@@ -215,6 +218,7 @@
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
+            opacity: 1;
   }
 }
 
@@ -416,6 +420,7 @@
   100% {
     -webkit-transform: none;
             transform: none;
+            opacity: 1;
   }
 }
 
@@ -453,6 +458,7 @@
   100% {
     -webkit-transform: none;
             transform: none;
+            opacity: 1;
   }
 }
 .animated.wobble {
@@ -1646,6 +1652,7 @@
   100% {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
+            opacity: 1;
   }
 }
 
@@ -1679,6 +1686,7 @@
   100% {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
+            opacity: 1;
   }
 }
 .animated.flipInX {
@@ -1718,6 +1726,7 @@
   100% {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
+            opacity: 1;
   }
 }
 
@@ -1751,6 +1760,7 @@
   100% {
     -webkit-transform: perspective(400px);
             transform: perspective(400px);
+            opacity: 1;
   }
 }
 .animated.flipInY {
@@ -2621,6 +2631,9 @@
     -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
   }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes zoomInUp {
@@ -2638,6 +2651,9 @@
             transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
     -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+  100% {
+    opacity: 1;
   }
 }
 .animated.zoomInUp {
@@ -2941,6 +2957,7 @@
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
+            opacity: 1;
   }
 }
 
@@ -2954,6 +2971,7 @@
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
+            opacity: 1;
   }
 }
 .animated.slideInUp {
