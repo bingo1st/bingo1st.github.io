@@ -60,6 +60,7 @@ body{
   width: 60%;
   position: absolute;
   bottom: 0;
+  font-size: 13px;
   height: 17%;
   z-index: 100;
   color: #1f4354;

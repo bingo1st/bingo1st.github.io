@@ -30,23 +30,21 @@
                     "src":"1_0.png",
                     "left": "0",
                     "top": "0",
-                    "animation": "zoomInUp",
-                    "duration": 1
+                    "animation": "fadeIn",
+                    "duration": 0
                 },
                 {
                     "src":"1_1.png",
-                    "left": "40%",
-                    "top": "34%",
-                    "width": "25%",
+                    "left": "0",
+                    "top": "0",
                     "animation": "rubberBand",
                     "duration": 1,
                     "delay": 1.2
                 },
                 {
                     "src":"1_2.png",
-                    "left": "49%",
-                    "top": "8%",
-                    "width": "35%",
+                    "left": "0",
+                    "top": "0",
                     "animation": "wobble",
                     "duration": .7,
                     "delay": 1
@@ -55,7 +53,7 @@
                     "src":"bg_questions.png",
                     "left": "0",
                     "bottom": "0",
-                    "animation": "flipInY",
+                    "animation": "fadeIn",
                     "duration": .5,
                     "delay": 2
                 }
@@ -233,7 +231,7 @@
                 });
             }
 
-            _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark fadeIn'"+
+            _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark slideInUp'"+
                         _content + '</div>' +
                         _pics +
                      "</div>";
