@@ -57,9 +57,9 @@ body{
   color: #fff;
 }
 .question{
-  width: 66%;
+  width: 72%;
   position: absolute;
-  right: 3%;
+  right: 7%;
   bottom: 5%;
   font-size: 13px;
   z-index: 100;
@@ -68,6 +68,16 @@ body{
   -webkit-animation-delay: 2.2s;
   animation-duration: 0.7s;
   -webkit-animation-duration: 0.7s;
+}
+.question input[type=radio]{
+  margin-left: 10px;
+}
+.question-title{
+  width: 75%;
+  height: 32px;
+  padding: 0 20% 8% 11%;
+  text-align: center;
+  text-align: center;
 }
 .question-bg{
   animation-duration: 0.5s;-webkit-animation-duration:0.5s;animation-delay:2s;-webkit-animation-delay:2s;top:auto;opacity:0;left:0;right:auto;bottom:0;z-index:0;width:100%;

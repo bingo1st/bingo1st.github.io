@@ -23,7 +23,6 @@
         {
             "question": "楼梯陡、门口窄，太容易发生踩踏事故找谁？",
             "options": ["规划局", "日料店", "安监局"],
-            "background" : "#fff",//"#66dfc0",
             "elements": 
             [
                 {
@@ -50,118 +49,70 @@
             ]
         },
         {
-            "question": "喜洋洋和灰太郎，谁更聪明？",
-            "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#fff",//"#d5f525",
+            "question": "圈地私建堵了胡同口，咋弄？",
+            "options": ["规划局", "城管", "土行孙"],
             "elements": 
             [
                 {
-                    "src":"1.png",
-                    "left": 10,
-                    "top": 50,
-                    "animation": "hinge",
-                    "duration": 1
+                    "src":"2_0.png",
+                    "left": "0",
+                    "top": "0"
                 },
                 {
-                    "src":"2.png",
-                    "left": 100,
-                    "top": 50,
-                    "animation": "hinge",
-                    "duration": 1
-                },
-                {
-                    "src":"3.png",
-                    "left": 200,
-                    "top": 50,
-                    "animation": "hinge",
-                    "duration": 1
+                    "src":"2_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "rubberBand",
+                    "duration": 1,
+                    "delay": 1.2
                 }
             ]
         },
         {
-            "question": "喜洋洋和灰太郎，谁更聪明？",
-            "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#fff",//"#66dfc0",
+            "question": "隔壁的仓库乱扯电线，有火灾隐患！",
+            "options": ["蝙蝠侠", "安监局", "119"],
             "elements": 
             [
                 {
-                    "src":"1.png",
-                    "left": 10,
-                    "top": 50,
-                    "animation": "tada",
-                    "duration": 1
+                    "src":"3_0.png",
+                    "left": "0",
+                    "top": "0"
                 },
                 {
-                    "src":"2.png",
-                    "left": 100,
-                    "top": 50,
-                    "animation": "tada",
-                    "duration": 1
-                },
-                {
-                    "src":"3.png",
-                    "left": 200,
-                    "top": 50,
-                    "animation": "tada",
-                    "duration": 1
+                    "src":"3_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "flash",
+                    "duration": 1,
+                    "delay": 1.2
                 }
             ]
         },
         {
-            "question": "喜洋洋和灰太郎，谁更聪明？",
-            "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#fff",//"#66dfc0",
+            "question": "邻居的破猫成宿叫春，闹挺！",
+            "options": ["社区", "人口计生委", "黑猫警长"],
             "elements": 
             [
                 {
-                    "src":"1.png",
-                    "left": 10,
-                    "top": 50,
-                    "animation": "rubberBand",
-                    "duration": 1
+                    "src":"4_0.png",
+                    "left": "0",
+                    "top": "0"
                 },
                 {
-                    "src":"2.png",
-                    "left": 100,
-                    "top": 50,
-                    "animation": "rubberBand",
-                    "duration": 1
-                },
-                {
-                    "src":"3.png",
-                    "left": 200,
-                    "top": 50,
-                    "animation": "rubberBand",
-                    "duration": 1
-                }
-            ]
-        },
-        {
-            "question": "喜洋洋和灰太郎，谁更聪明？",
-            "options": ["喜洋洋", "灰太郎", "不知道"],
-            "background" : "#66dfc0",
-            "elements": 
-            [
-                {
-                    "src":"1.png",
-                    "left": 10,
-                    "top": 50,
+                    "src":"4_1.png",
+                    "left": "0",
+                    "top": "0",
                     "animation": "flash",
-                    "duration": 1
+                    "duration": 1,
+                    "delay": 1.2
                 },
                 {
-                    "src":"2.png",
-                    "left": 100,
-                    "top": 50,
-                    "animation": "flash",
-                    "duration": 1
-                },
-                {
-                    "src":"3.png",
-                    "left": 200,
-                    "top": 50,
-                    "animation": "flash",
-                    "duration": 1
+                    "src":"4_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "rubberBand",
+                    "duration": .7,
+                    "delay": 1.6
                 }
             ]
         }
@@ -187,7 +138,7 @@
 
             if(_item.question && _item.options){
                 _options = _item.options;
-                _content = "<h2>" + (_i + 1) + ". " + _item.question + "</h2><br/><br/>";
+                _content = "<div class='question-title'>" + _item.question + "</div>";
                 $.each(_options, function(_j) {     
                      _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
                 }); 
@@ -222,7 +173,7 @@
                 _pics += '<img class="question-bg animation-mark slideInUp animated" src="images/pics/bg_questions_' + (_i + 1) + '.png">'
             }
 
-            _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark slideInUp'"+
+            _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark slideInUp'>"+
                         _content + '</div>' +
                         _pics +
                      "</div>";
@@ -243,7 +194,7 @@
             aotoScrolling: false,
             verticalCentered: true,
             resize : true,
-            sectionsColor : ['#799475', '#d5f525','#43c2ef','#ff72ab', '#ecec2c'],
+            sectionsColor : ['#799475', '#49675c','#3c7985','#54b4c1', '#54b4c1'],
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
