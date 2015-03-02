@@ -46,14 +46,6 @@
                     "animation": "wobble",
                     "duration": .7,
                     "delay": 1
-                },
-                {
-                    "src":"bg_questions.png",
-                    "left": "0",
-                    "bottom": "0",
-                    "animation": "fadeIn",
-                    "duration": .5,
-                    "delay": 2
                 }
             ]
         },
@@ -227,6 +219,7 @@
                             ";' src='images/pics/" + _elements[_j].src + 
                             "' class='animation-mark " + _elements[_j].animation + "'/>";
                 });
+                _pics += '<img class="question-bg animation-mark slideInUp animated" src="images/pics/bg_questions_' + (_i + 1) + '.png">'
             }
 
             _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark slideInUp'"+

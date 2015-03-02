@@ -57,16 +57,18 @@ body{
   color: #fff;
 }
 .question{
-  width: 60%;
+  width: 66%;
   position: absolute;
-  bottom: 0;
+  right: 3%;
+  bottom: 5%;
   font-size: 13px;
-  height: 17%;
   z-index: 100;
   color: #1f4354;
-  padding: 0 29%;
-  animation-delay: 2s;
-  -webkit-animation-delay: 2s;
+  animation-delay: 2.2s;
+  -webkit-animation-delay: 2.2s;
   animation-duration: 0.7s;
   -webkit-animation-duration: 0.7s;
+}
+.question-bg{
+  animation-duration: 0.5s;-webkit-animation-duration:0.5s;animation-delay:2s;-webkit-animation-delay:2s;top:auto;opacity:0;left:0;right:auto;bottom:0;z-index:0;width:100%;
 }
