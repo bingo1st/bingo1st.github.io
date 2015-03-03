@@ -115,6 +115,202 @@
                     "delay": 1.6
                 }
             ]
+        },
+        {
+            "question": "井盖不翼而飞，谁管？",
+            "options": ["忍者神龟", "产权单位", "城管"],
+            "elements": 
+            [
+                {
+                    "src":"5_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"5_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "flash",
+                    "duration": 1,
+                    "delay": 1.2
+                },
+                {
+                    "src":"5_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "rubberBand",
+                    "duration": .7,
+                    "delay": 1.6
+                }
+            ]
+        },
+        {
+            "question": "没有暖气，也要倔强地活到春天！",
+            "options": ["质监局", "供暖办", "王思聪"],
+            "elements": 
+            [
+                {
+                    "src":"6_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"6_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "shake",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"6_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "fadeIn",
+                    "duration": .7,
+                    "delay": 1.6
+                }
+            ]
+        },
+        {
+            "question": "狗狗的厕所都不放过，无耻！",
+            "options": ["光头强", "环保局", "园林绿化局"],
+            "elements": 
+            [
+                {
+                    "src":"7_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"7_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "rubberBand",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"7_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "tada",
+                    "duration": .7,
+                    "delay": 1.6
+                }
+            ]
+        },
+        {
+            "question": "到药店买到假药啦！",
+            "options": ["德云社", "工商局", "食药监局"],
+            "elements": 
+            [
+                {
+                    "src":"8_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"8_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "slideInLeft",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"8_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "flash",
+                    "duration": .7,
+                    "delay": 1.6
+                }
+            ]
+        },
+        {
+            "question": "老婆我错了，别动刀，救命啊！",
+            "options": ["社区", "110", "神盾局"],
+            "elements": 
+            [
+                {
+                    "src":"9_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"9_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "slideInRight",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"9_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "shake",
+                    "duration": .7,
+                    "delay": 1
+                }
+            ]
+        },
+        {
+            "question": "养老保险查询应该问谁？",
+            "options": ["社保中心", "邻居王大妈", "民政局"],
+            "elements": 
+            [
+                {
+                    "src":"10_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"10_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "rubberBand",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"10_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "zoomInDown",
+                    "duration": .7,
+                    "delay": 1
+                }
+            ]
+        },
+        {
+            "question": "   路边乱停车谁管？",
+            "options": ["李刚", "车管所", "交通支队"],
+            "elements": 
+            [
+                {
+                    "src":"11_0.png",
+                    "left": "0",
+                    "top": "0"
+                },
+                {
+                    "src":"11_1.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "slideInRight",
+                    "duration": .7,
+                    "delay": .5
+                },
+                {
+                    "src":"11_2.png",
+                    "left": "0",
+                    "top": "0",
+                    "animation": "flash",
+                    "duration": .7,
+                    "delay": 1
+                }
+            ]
         }
     ];
     $(document).ready(function() {
@@ -170,7 +366,7 @@
                             ";' src='images/pics/" + _elements[_j].src + 
                             "' class='animation-mark " + _elements[_j].animation + "'/>";
                 });
-                _pics += '<img class="question-bg animation-mark slideInUp animated" src="images/pics/bg_questions_' + (_i + 1) + '.png">'
+                _pics += '<img class="question-bg animation-mark slideInUp" src="images/pics/bg_questions_' + (_i + 1) + '.png">'
             }
 
             _html += "<div class='section section" + (_i + 1) + "'><div class='question animation-mark slideInUp'>"+
@@ -194,7 +390,8 @@
             aotoScrolling: false,
             verticalCentered: true,
             resize : true,
-            sectionsColor : ['#799475', '#49675c','#3c7985','#54b4c1', '#54b4c1'],
+            sectionsColor : ['#799475', '#49675c','#3c7985','#54b4c1',
+                '#ffd591', '#77bc72', '#956d5c', '#4d628a', '#d78152', '#5e996a', '#a5b6a5'],
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
