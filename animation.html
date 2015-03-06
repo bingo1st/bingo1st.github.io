@@ -15,9 +15,11 @@
 	    <link rel="stylesheet" type="text/css" href="css/style.css" />
 	    <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 	</head>
-	<body>	
+	<body>
+    <div class="cover"><i></i></div>
 	<div id="fullpage"> </div>
-    <div class="touchstyle-headphone"><div class="icon"></div></div>
+    <div class="touchstyle-headphone play"><div class="icon"></div></div>
+    <audio id="music" loop src="http://chuyemusic.blob.core.chinacloudapi.cn/resource/4af93486effda3a6e6a4536bb6c608b0.mp3"></audio>
 	<script type="text/javascript">
     var config = [
         {
@@ -36,7 +38,7 @@
                     "top": "0",
                     "animation": "rubberBand",
                     "duration": 1,
-                    "delay": 1.2
+                    "delay": .8
                 },
                 {
                     "src":"1_2.png",
@@ -44,7 +46,7 @@
                     "top": "0",
                     "animation": "wobble",
                     "duration": .7,
-                    "delay": 1
+                    "delay": .9
                 }
             ]
         },
@@ -64,7 +66,7 @@
                     "top": "0",
                     "animation": "rubberBand",
                     "duration": 1,
-                    "delay": 1.2
+                    "delay": .9
                 }
             ]
         },
@@ -84,7 +86,7 @@
                     "top": "0",
                     "animation": "flash",
                     "duration": 1,
-                    "delay": 1.2
+                    "delay": .9
                 }
             ]
         },
@@ -104,7 +106,7 @@
                     "top": "0",
                     "animation": "flash",
                     "duration": 1,
-                    "delay": 1.2
+                    "delay": .8
                 },
                 {
                     "src":"4_2.png",
@@ -112,7 +114,7 @@
                     "top": "0",
                     "animation": "rubberBand",
                     "duration": .7,
-                    "delay": 1.6
+                    "delay": 1.2
                 }
             ]
         },
@@ -132,7 +134,7 @@
                     "top": "0",
                     "animation": "flash",
                     "duration": 1,
-                    "delay": 1.2
+                    "delay": .8
                 },
                 {
                     "src":"5_2.png",
@@ -140,7 +142,7 @@
                     "top": "0",
                     "animation": "rubberBand",
                     "duration": .7,
-                    "delay": 1.6
+                    "delay": 1.2
                 }
             ]
         },
@@ -168,7 +170,7 @@
                     "top": "0",
                     "animation": "fadeIn",
                     "duration": .7,
-                    "delay": 1.6
+                    "delay": 1.2
                 }
             ]
         },
@@ -196,7 +198,7 @@
                     "top": "0",
                     "animation": "tada",
                     "duration": .7,
-                    "delay": 1.6
+                    "delay": 1.2
                 }
             ]
         },
@@ -224,7 +226,7 @@
                     "top": "0",
                     "animation": "flash",
                     "duration": .7,
-                    "delay": 1.6
+                    "delay": 1.2
                 }
             ]
         },
@@ -252,7 +254,7 @@
                     "top": "0",
                     "animation": "shake",
                     "duration": .7,
-                    "delay": 1
+                    "delay": 1.2
                 }
             ]
         },
@@ -280,7 +282,7 @@
                     "top": "0",
                     "animation": "zoomInDown",
                     "duration": .7,
-                    "delay": 1
+                    "delay": 1.2
                 }
             ]
         },
@@ -314,7 +316,26 @@
         }
     ];
     $(document).ready(function() {
-        config && config.length && initPages();
+        var _cover = $(".cover");
+            _headPhone = $(".touchstyle-headphone");
+            _music = document.getElementById("music");
+
+        _cover.on("touchstart", function(){
+            _cover.hide();
+            setTimeout(function(){
+                $(".section1 .animation-mark").addClass("animated");
+            }, 200);
+        });
+
+        setTimeout(function(){
+            config && config.length && initPages();
+            _music.play()
+        }, 200);
+
+        _headPhone.click(function(){
+            _headPhone.hasClass("play")? _music.pause() : _music.play();
+            _headPhone.toggleClass("play");
+        });
     });
 	
     function initPages(){
@@ -376,7 +397,7 @@
             _i++;
         }
 
-        _container.html(_html);
+        _container.html(_html + "<div class='section section" + (_i + 1) + "'><div class='result'></div></div>");
 
         _container.fullpage({
             navigation: false,
@@ -394,8 +415,12 @@
                 '#ffd591', '#77bc72', '#956d5c', '#4d628a', '#d78152', '#5e996a', '#a5b6a5'],
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
-                setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},1000);
-                $(".section1 .animation-mark").addClass("animated");
+                setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},100);
+                $(".question input, .question label").click(function(){
+                    setTimeout(function(){
+                        $.fn.fullpage.moveSectionDown();
+                    }, 300);
+                });
             },
             afterLoad: function(anchorLink, index){
                 
@@ -406,7 +431,7 @@
             }
         });
 
-        $.fn.fullpage.setAllowScrolling(false, 'up');
+        $.fn.fullpage.setAllowScrolling(false);
     }
   	</script>
 		
