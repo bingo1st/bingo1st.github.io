@@ -141,8 +141,8 @@ body{
   z-index: 1000;
 }
 .result{
-  background: url('../images/pics/result.png') 50% 50% no-repeat;
-  background-size: cover;
+  background: url('../images/pics/result.png') #24b5b3 50% 50% no-repeat;
+  background-size: contain;
 }
 .cover i{
   position: absolute;
