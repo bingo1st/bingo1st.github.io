@@ -18,8 +18,8 @@
 	<body>
     <div class="cover"><i></i></div>
 	<div id="fullpage"> </div>
-    <div class="touchstyle-headphone play"><div class="icon"></div></div>
-    <audio id="music" loop src="images/pics/paopaotang.mp3"></audio>
+    <div class="touchstyle-headphone"><div class="icon"></div></div>
+    <audio id="music" loop ></audio>
 	<script type="text/javascript">
     var config = [
         {
@@ -315,6 +315,11 @@
             ]
         }
     ];
+    function nextQuestion(){
+        setTimeout(function(){
+            $.fn.fullpage.moveSectionDown();
+        }, 300);
+    }
     $(document).ready(function() {
         var _cover = $(".cover");
             _headPhone = $(".touchstyle-headphone");
@@ -324,12 +329,14 @@
             _cover.hide();
             setTimeout(function(){
                 $(".section1 .animation-mark").addClass("animated");
+                _headPhone.addClass("play")
+                _music.setAttribute("src", "images/pics/paopaotang.mp3");
+                _music.play();
             }, 200);
         });
 
         setTimeout(function(){
             config && config.length && initPages();
-            _music.play()
         }, 200);
 
         _headPhone.click(function(){
@@ -416,11 +423,7 @@
             normalScrollElementTouchThreshold: 5,
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},100);
-                $(".question input, .question label").click(function(){
-                    setTimeout(function(){
-                        $.fn.fullpage.moveSectionDown();
-                    }, 300);
-                });
+                $(".question input").click(nextQuestion);
             },
             afterLoad: function(anchorLink, index){
                 
