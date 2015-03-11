@@ -106,8 +106,8 @@ body{
   font-size: 13px;
   z-index: 100;
   color: #1f4354;
-  animation-delay: 2.2s;
-  -webkit-animation-delay: 2.2s;
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
   animation-duration: 0.7s;
   -webkit-animation-duration: 0.7s;
   text-align: center;

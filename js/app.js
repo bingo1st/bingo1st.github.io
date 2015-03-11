@@ -16,7 +16,7 @@
                     "top": "0",
                     "animation": "rubberBand",
                     "duration": 1,
-                    "delay": .1
+                    "delay": 1
                 },
                 {
                     "src":"1_2.png",
@@ -310,12 +310,12 @@
             _headPhone = $(".touchstyle-headphone");
             _music = document.getElementById("music");
 
-        _headPhone.addClass("play")
         _music.setAttribute("src", "images/pics/paopaotang.mp3");
-        _music.play();
 
         _cover.on("touchstart", function(){
             _cover.hide();
+            _headPhone.addClass("play");
+        	_music.play();
             $(".section1 .animation-mark").addClass("animated");
         });
 
@@ -431,6 +431,7 @@
             /*normalScrollElementTouchThreshold: 5,*/
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},100);
+                $(".section1 .animation-mark").addClass("animated");
                 $(".question input").click(nextQuestion);
             },
             afterLoad: function(anchorLink, index){
