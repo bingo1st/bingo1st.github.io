@@ -316,7 +316,6 @@
             _cover.hide();
             _headPhone.addClass("play");
         	_music.play();
-        	$(".animation-mark").removeClass("animated");
             $(".section1 .animation-mark").addClass("animated");
         });
 
