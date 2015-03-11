@@ -310,18 +310,17 @@
             _headPhone = $(".touchstyle-headphone");
             _music = document.getElementById("music");
 
+        _headPhone.addClass("play")
+        _music.setAttribute("src", "images/pics/paopaotang.mp3");
+        _music.play();
+
         _cover.on("touchstart", function(){
             _cover.hide();
-            setTimeout(function(){
-                $(".section1 .animation-mark").addClass("animated");
-                _headPhone.addClass("play")
-                _music.setAttribute("src", "images/pics/paopaotang.mp3");
-                _music.play();
-            }, 200);
+            $(".section1 .animation-mark").addClass("animated");
         });
 
         setTimeout(function(){
-        	var _questionStore = randomArray(config, 8);
+        	var _questionStore = randomArray(config, 6);
             initPages(_questionStore);
         }, 1000);
 
