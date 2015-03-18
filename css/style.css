@@ -161,3 +161,19 @@ body{
 @-webkit-keyframes slide{0%{opacity:0;-webkit-transform:translate3d(0,60px,0)}80%{opacity:.5}100%{opacity:1}}
 @-webkit-keyframes spin{0%{-webkit-transform:rotateZ(0)}100%{-webkit-transform:rotateZ(360deg)}}
 @-webkit-keyframes outer{0%{-webkit-transform:scale(.9);opacity:1}100%{-webkit-transform:scale(1.3);opacity:0}}
+
+#yes, #no{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  margin-left: -75px;
+  margin-top: -75px;
+  z-index: 10000;
+}
+#score{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 90%;
+}

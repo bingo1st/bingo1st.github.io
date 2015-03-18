@@ -1,8 +1,14 @@
-    var config = [
+$(function(){
+	var _elYES = $("#yes");
+	var _elNO = $("#no");
+	var _rightAnswers = 0;
+	var _questionStore = []; //选中的题集
+ 	var config = [
         {
             "question": "楼梯陡、门口窄，太容易发生踩踏事故找谁？",
-            "options": ["规划局", "日料店", "安监局"],
+            "options": ["规划局", "社区居委会", "安监局"],
             "bg": '#799475', 
+            "answer": 1,
             "elements": 
             [
                 {
@@ -31,7 +37,8 @@
         {
             "question": "圈地私建堵了胡同口，咋弄？",
             "options": ["规划局", "城管", "土行孙"],
-            "bg":'#49675c',
+            "bg":'#49675c', 
+            "answer": 1,
             "elements": 
             [
                 {
@@ -52,7 +59,8 @@
         {
             "question": "隔壁的仓库乱扯电线，有火灾隐患！",
             "options": ["蝙蝠侠", "安监局", "119"],
-            "bg": '#3c7985',
+            "bg": '#3c7985', 
+            "answer": 2,
             "elements": 
             [
                 {
@@ -70,7 +78,7 @@
                 }
             ]
         },
-        {
+/*        {
             "question": "邻居的破猫成宿叫春，闹挺！",
             "options": ["社区", "人口计生委", "黑猫警长"],
             "bg": '#54b4c1',
@@ -98,11 +106,12 @@
                     "delay": 1.1
                 }
             ]
-        },
+        },*/
         {
             "question": "井盖不翼而飞，谁管？",
             "options": ["忍者神龟", "产权单位", "城管"],
-            "bg": '#ffd591',
+            "bg": '#ffd591', 
+            "answer": 3,
             "elements": 
             [
                 {
@@ -130,8 +139,9 @@
         },
         {
             "question": "没有暖气，也要倔强地活到春天！",
-            "options": ["质监局", "供暖办", "王思聪"],
-            "bg": '#77bc72',
+            "options": ["质监局", "供暖办", "民政局"],
+            "bg": '#77bc72', 
+            "answer": 2,
             "elements": 
             [
                 {
@@ -160,7 +170,8 @@
         {
             "question": "狗狗的厕所都不放过，无耻！",
             "options": ["光头强", "环保局", "园林绿化局"],
-            "bg": '#956d5c',
+            "bg": '#956d5c', 
+            "answer": 3,
             "elements": 
             [
                 {
@@ -188,8 +199,9 @@
         },
         {
             "question": "到药店买到假药啦！",
-            "options": ["德云社", "工商局", "食药监局"],
-            "bg": '#4d628a', 
+            "options": ["消费者协会", "工商局", "食药监局"],
+            "bg": '#4d628a',  
+            "answer": 2,
             "elements": 
             [
                 {
@@ -217,8 +229,9 @@
         },
         {
             "question": "老婆我错了，别动刀，救命啊！",
-            "options": ["社区", "110", "神盾局"],
-            "bg": '#d78152', 
+            "options": ["社区居委会", "110", "隔壁大婶"],
+            "bg": '#d78152',  
+            "answer": 1,
             "elements": 
             [
                 {
@@ -247,7 +260,8 @@
         {
             "question": "养老保险查询应该问谁？",
             "options": ["社保中心", "邻居王大妈", "民政局"],
-            "bg": '#5e996a', 
+            "bg": '#5e996a',  
+            "answer": 1,
             "elements": 
             [
                 {
@@ -274,9 +288,10 @@
             ]
         },
         {
-            "question": "   路边乱停车谁管？",
-            "options": ["李刚", "车管所", "交通支队"],
-            "bg": '#a5b6a5',
+            "question": "路边乱停车谁管？",
+            "options": ["110", "车管所", "交通支队"],
+            "bg": '#a5b6a5', 
+            "answer": 3,
             "elements": 
             [
                 {
@@ -323,7 +338,7 @@
         });
 
         setTimeout(function(){
-        	var _questionStore = randomArray(config, 6);
+        	_questionStore = randomArray(config, 5);
             initPages(_questionStore);
         }, 1000);
 
@@ -346,12 +361,23 @@
 		return result;
     }
 
-    function nextQuestion(){
+    function nextQuestion(_index){
+    	checkAnswer(_index);
         setTimeout(function(){
             $.fn.fullpage.moveSectionDown();
-        }, 300);
+        }, 500);
     }
 	
+	function checkAnswer(_index){
+		var answerIndex = _questionStore[_index].answer;
+		if($("#options_" + _index + "_" + (answerIndex-1)).prop("checked")){
+			_elYES.addClass("animated");
+			_rightAnswers ++;
+		}else{
+			_elNO.addClass("animated");
+		}
+	}
+
     function initPages(questions){
         var _html     = "";
         var _content  = "";
@@ -371,7 +397,7 @@
                 _options = _item.options;
                 _content = "<div class='question-title'>" + _item.question + "</div>";
                 $.each(_options, function(_j) {     
-                     _content += "<input type='radio' name='options_" + _i + "' id='options_" + _i + "_" + _j +"' /><label for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
+                     _content += "<input type='radio' questionID='" + _i + "' id='options_" + _i + "_" + _j +"' /><label questionID='" + _i + "' for='options_" + _i + "_" + _j +"'>" + _options[_j] + "</label>"; 
                 }); 
             }
             if(_item.elements){
@@ -411,7 +437,7 @@
             _i++;
         }
 
-        _container.html(_html + "<div class='section section" + (_i + 1) + "'><div class='result'></div></div>");
+        _container.html(_html + "<div class='section section" + (_i + 1) + "'><div class='cover'><p id='score'></p></div></div>");
 
         var _colorList = [];
         for(var i = 0; i < questions.length; i++){
@@ -435,10 +461,16 @@
             afterRender: function(){
                 setTimeout(function(){$('#fullpage,#fp-nav').fadeIn();},100);
                 $(".section1 .animation-mark").addClass("animated");
-                $(".question input").click(nextQuestion);
+                $(".question input").click(function(){
+                	var _index = $(this).attr("questionID");
+                	nextQuestion(_index);
+                });
             },
             afterLoad: function(anchorLink, index){
                 $(".section" + index + " .animation-mark").addClass("animated");
+                if(index == $(".section").length){
+                	$("#score").text("你最终得分：" + _rightAnswers*20 + "分！（文案待添加...）");
+                }
             },
             onLeave: function(index, nextIndex, direction){
                 $(".animation-mark").removeClass("animated");
@@ -448,3 +480,4 @@
 
         $.fn.fullpage.setAllowScrolling(false);
     }
+ });
