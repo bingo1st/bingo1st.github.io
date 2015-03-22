@@ -3,12 +3,17 @@ $(function(){
 	var _elNO = $("#no");
 	var _rightAnswers = 0;
 	var _questionStore = []; //选中的题集
+	var _score = $(".cover p");
+	var _animationMark;
+	var _cover = $(".cover");
+	var _sectionLength = "";
+
  	var config = [
         {
             "question": "楼梯陡、门口窄，太容易发生踩踏事故找谁？",
             "options": ["规划局", "社区居委会", "安监局"],
             "bg": '#799475', 
-            "answer": 1,
+            "answer": 3,
             "elements": 
             [
                 {
@@ -38,7 +43,7 @@ $(function(){
             "question": "圈地私建堵了胡同口，咋弄？",
             "options": ["规划局", "城管", "土行孙"],
             "bg":'#49675c', 
-            "answer": 1,
+            "answer": 2,
             "elements": 
             [
                 {
@@ -60,7 +65,7 @@ $(function(){
             "question": "隔壁的仓库乱扯电线，有火灾隐患！",
             "options": ["蝙蝠侠", "安监局", "119"],
             "bg": '#3c7985', 
-            "answer": 2,
+            "answer": 3,
             "elements": 
             [
                 {
@@ -111,7 +116,7 @@ $(function(){
             "question": "井盖不翼而飞，谁管？",
             "options": ["忍者神龟", "产权单位", "城管"],
             "bg": '#ffd591', 
-            "answer": 3,
+            "answer": 2,
             "elements": 
             [
                 {
@@ -201,7 +206,7 @@ $(function(){
             "question": "到药店买到假药啦！",
             "options": ["消费者协会", "工商局", "食药监局"],
             "bg": '#4d628a',  
-            "answer": 2,
+            "answer": 3,
             "elements": 
             [
                 {
@@ -321,9 +326,9 @@ $(function(){
 
     
     $(document).ready(function() {
-        var _cover = $(".cover");
-            _headPhone = $(".touchstyle-headphone");
-            _music = document.getElementById("music");
+	    var _headPhone = $(".touchstyle-headphone");
+        var _music = document.getElementById("music");
+        var _touchIndicator = $(".cover i");
 
         _music.setAttribute("src", "images/pics/paopaotang.mp3");
 
@@ -331,6 +336,7 @@ $(function(){
             _cover.hide();
             _headPhone.addClass("play");
         	_music.play();
+        	_touchIndicator.remove();
         	$(".animation-mark").removeClass("animated");
             setTimeout(function(){
 	        	$(".section1 .animation-mark").addClass("animated");
@@ -340,7 +346,11 @@ $(function(){
         setTimeout(function(){
         	_questionStore = randomArray(config, 5);
             initPages(_questionStore);
-        }, 1000);
+        }, 500);
+
+		setTimeout(function(){
+        	_touchIndicator.show();
+        }, 3000);
 
         _headPhone.click(function(){
             _headPhone.hasClass("play")? _music.pause() : _music.play();
@@ -376,6 +386,19 @@ $(function(){
 		}else{
 			_elNO.addClass("animated");
 		}
+
+		if(_index >= _sectionLength - 1){
+            if(_rightAnswers != 5){
+	            _score.html("你最终得分：<span style='font-size:18px'>" + 
+	            _rightAnswers*20 + "</span>分！<br/>（轻触页面再玩一次！）");
+	            _cover.fadeIn().addClass("result").on("touchstart", function(){window.location.reload();});
+	        }else{
+	            var _resultNo = new Date().getTime();
+	            _score.html("抽奖编号:" + _resultNo + 
+	                "<br/><span>请截图发至'北京东城'微信公众号</span>");
+	            _cover.fadeIn().addClass("result_positive");
+	        }
+        }
 	}
 
     function initPages(questions){
@@ -437,7 +460,7 @@ $(function(){
             _i++;
         }
 
-        _container.html(_html + "<div class='section section" + (_i + 1) + "'><div class='cover'><p id='score'></p></div></div>");
+        _container.html(_html);
 
         var _colorList = [];
         for(var i = 0; i < questions.length; i++){
@@ -465,16 +488,14 @@ $(function(){
                 	var _index = $(this).attr("questionID");
                 	nextQuestion(_index);
                 });
+                _animationMark = $(".animation-mark");
+                _sectionLength = $(".section").length;
             },
             afterLoad: function(anchorLink, index){
                 $(".section" + index + " .animation-mark").addClass("animated");
-                if(index == $(".section").length){
-                	$("#score").text("你最终得分：" + _rightAnswers*20 + "分！（文案待添加...）");
-                }
             },
             onLeave: function(index, nextIndex, direction){
-                $(".animation-mark").removeClass("animated");
-                
+                _animationMark.removeClass("animated");
             }
         });
 
