@@ -333,6 +333,7 @@ $(function(){
         _music.setAttribute("src", "images/pics/paopaotang.mp3");
 
         _cover.on("touchstart", function(){
+        	if(_cover.hasClass("result_positive")){return;}
             _cover.hide();
             _headPhone.addClass("play");
         	_music.play();
