@@ -392,7 +392,8 @@ $(function(){
             if(_rightAnswers != 5){
 	            _score.html("你最终得分：<span style='font-size:18px'>" + 
 	            _rightAnswers*20 + "</span>分！<br/>（轻触页面再玩一次！）");
-	            _cover.fadeIn().addClass("result").on("touchstart", function(){window.location.reload();});
+	            _cover.fadeIn().addClass("result")
+	            _cover.on("touchstart", function(){window.location.reload();});
 	        }else{
 	            var _resultNo = new Date().getTime();
 	            _score.html("抽奖编号:" + _resultNo + 
