@@ -7,7 +7,7 @@ $(function(){
 	var _animationMark;
 	var _cover = $(".cover");
 	var _sectionLength = "";
-    var _questionLimitedNum = 5;
+    var _questionLimitedNum = 10;
 
  	var config = [
         {
@@ -666,7 +666,7 @@ $(function(){
             if(_item.elements){
                 _elements = _item.elements;
                 $.each(_elements, function(_j) {
-                    _elements[_j].zIndex = (_elements[_j].zIndex ? _elements[_j].zIndex : (_j - 1));
+                    _elements[_j].zIndex = (_elements[_j].zIndex ? _elements[_j].zIndex : 0);
                     _elements[_j].width = (_elements[_j].width ? _elements[_j].width : "100%");
                     _elements[_j].top = (_elements[_j].top ? _elements[_j].top : "auto");
                     _elements[_j].left = (_elements[_j].left ? _elements[_j].left : "auto");

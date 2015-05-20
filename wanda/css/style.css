@@ -107,14 +107,14 @@ body{
   font-size: 14px;
   z-index: 100;
   color: #fff;
-  animation-delay: 2s;
-  -webkit-animation-delay: 2s;
-  animation-duration: 0.7s;
-  -webkit-animation-duration: 0.7s;
+  animation-delay: 2.7s;
+  -webkit-animation-delay: 2.7s;
+  animation-duration: 0.9s;
+  -webkit-animation-duration: 0.9s;
   text-align: left;
 }
 .question label{
-  min-width: 105px;
+  min-width: 115px;
   margin: 7px 0;
   display: inline-block;
   font-size: 13px;
@@ -127,20 +127,21 @@ body{
   width: 100%;
   min-height: 32px;
   line-height: 20px;
-  padding: 0 0 3% 0;
+  padding: 0 0 2% 0;
   text-indent: 2em;
 }
 .question-bg{
   animation-duration: 0.5s;
   -webkit-animation-duration:0.5s;
-  animation-delay:2s;
-  -webkit-animation-delay:2s;
+  animation-delay:2.6s;
+  -webkit-animation-delay:2.6s;
   top:auto;
   opacity:0;
   left:0;
   right:auto;
   bottom: -20px;
-  z-index:0;width:100%;
+  z-index:99;
+  width:100%;
 }
 .cover, .result{
   background: url('../images/pics/cover.jpg') 50% 50% no-repeat;
