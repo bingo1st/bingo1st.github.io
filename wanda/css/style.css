@@ -82,7 +82,7 @@ input, textarea, select, button {
 
 body{
   font-family:"微软雅黑";
-  background: url('../images/logo_bg.jpg') 50% 50% no-repeat;
+  background: url('../images/logo_bg.jpg') 50% 50% #65c8d0 no-repeat;
   background-size: cover;
 }
 #fullpage{
