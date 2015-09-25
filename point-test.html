@@ -258,6 +258,30 @@ body.wsite-background {background-attachment: fixed !important;}.wsite-backgroun
 			<div style="clear:both;"></div>
 </div>
 
+<div><div class="wsite-form-field wsite-name-field" style="margin:5px 0px 5px 0px;">
+				<label class="wsite-form-label" for="input-643347023340419244">学历 | Study <span class="form-required">*</span></label>
+				<div style="clear:both;"></div>
+				<div class="wsite-form-input-container wsite-form-left wsite-form-input-first-name">
+						<label onclick="a(9,2);">
+						<input type="radio" class="option-input radio" name="study">
+						大专，学徒，澳洲文凭
+						</label>
+						<label onclick="a(9,3);">
+						<input type="radio" class="option-input radio" name="study">
+						本科或硕士
+						</label>
+						<label onclick="a(9,4);">
+						<input type="radio" class="option-input radio" name="study">
+						博士及以上
+						</label>
+						<label>
+						<input type="radio" class="option-input radio" name="study">
+						都没有
+						</label>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+</div>
 
 
 <div><div class="wsite-form-field wsite-name-field" style="margin:5px 0px 5px 0px;">
@@ -353,29 +377,7 @@ body.wsite-background {background-attachment: fixed !important;}.wsite-backgroun
 </noscript>
 
 		<script type="text/javascript">
-		var b=[],h="g",x="v",t="s",d="c",n="m",g=0,w=h+"k"+x+"i"+t+"a."+d+"o"+n,y='<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=6076a8ff29c983304ffc19a8e8b564ec0fa2aa23c29984c51de3df1080843af4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="GKVISA澳洲移民助理" title="GKVISA澳洲移民助理"></a>',e,f="提高英语，澳洲留学，偏远地区担保，雇主担保，投资移民等途径",u="",noname="无名英雄";
-		for(var i=0;i<9;i++){b[i] = 0;}
-		function a(i,j){
-			b[i] = j;
-		}
-		function k(){
-			//TODO 移除叹号
-			g=0;
-			while(!document.location.href.indexOf(w)<0){alert("请访问【"+w+"】——后付费移民专家！");}
-			name = document.getElementById("name").value;
-			if(name.length < 1){
-				name=noname;
-			}
-			for(var i=0;i<9;i++){g+=b[i];}
-			if(g==0){document.getElementById("result").innerHTML = "你还不知道怎么选择吧:)<br/>No worries! 欢迎随时大胆骚扰小袋鼠："+y;return;}
-			if(g<5){e="30";u="Oops! ";}
-			if(g>=5&&g<10){e="50";u="Oops! ";}
-			if(g==10){e="60";u="棒! ";}
-			if(g==11){e="80";u="恭喜! ";f="走州担保";}
-			if(g>=12){e="99";u="恭喜你! ";f="直接申请独立技术移民";}
-
-			document.getElementById("result").innerHTML = "GK小袋鼠说："+u+name+"，你最终得分：<span style='font-size:60px'>"+(g*5)+"</span>，成为澳洲人的概率大概是：<span style='font-size:60px'>"+e+"%</span>，你可以通过"+f+"移民.<br/><span style='font-size:18px;'>如果还有不清楚的，欢迎随时骚扰小袋鼠：</span>"+y;
-		}
+		var b=[],h="g",x="v",t="s",d="c",n="m",g=0,w=h+"k"+x+"i"+t+"a."+d+"o"+n,y='<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=6076a8ff29c983304ffc19a8e8b564ec0fa2aa23c29984c51de3df1080843af4"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="GKVISA澳洲移民助理" title="GKVISA澳洲移民助理"></a>',e,f="提高英语，澳洲留学，偏远地区担保，雇主担保，投资移民等途径",u="",noname="无名英雄";for(var i=0;i<10;i++){b[i]=0}function a(i,j){b[i]=j}function k(){g=0;while(document.location.href.indexOf(w)<0){alert("请访问【"+w+"】——后付费移民专家！")}name=document.getElementById("name").value;if(name.length<1){name=noname}for(var i=0;i<10;i++){g+=b[i]}if(g==0){document.getElementById("result").innerHTML="你还不知道怎么选择吧:)<br/>No worries! 欢迎随时大胆骚扰小袋鼠："+y;return}if(g<5){e="30";u="Oops! "}if(g>=5&&g<10){e="50";u="Oops! "}if(g==10){e="60";u="棒! "}if(g==11){e="80";u="恭喜! ";f="走州担保"}if(g>=12){e="99";u="恭喜你! ";f="直接申请独立技术移民"}document.getElementById("result").innerHTML="GK小袋鼠说："+u+name+"，你最终得分：<span style='font-size:60px'>"+(g*5)+"</span>，成为澳洲人的概率大概是：<span style='font-size:60px'>"+e+"%</span>，你可以通过"+f+"移民.<br/><span style='font-size:18px;'>如果还有不清楚的，欢迎随时骚扰小袋鼠：</span>"+y};
 		</script>
 	</body>
 </html>
