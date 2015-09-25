@@ -375,6 +375,7 @@ div.paragraph ol, div.paragraph ol li { list-style: decimal outside !important; 
   height: 40px;
   position: absolute;
   content: '\2716';
+  color:#fff;
   display: inline-block;
   font-size: 26.66667px;
   text-align: center;
