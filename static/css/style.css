@@ -128,12 +128,12 @@ img{-ms-interpolation-mode:bicubic}.wsite-placeholder{color:#a9a9a9}::-webkit-in
  #footer-wrap { text-align: right; border-top: 2px solid #ededed; padding: 40px 0px; }
  .blog-post .blog-title { font-weight:100; }
  .blog-post .blog-title a { color:#2b2b2b; text-decoration:none; display:block; margin-bottom:5px; }
- .blog-post .blog-date { font-size:14px; text-transform:uppercase; color: #8e8e8e; }
- .blog-post .blog-comments { font-size:14px; text-transform:uppercase; float:left !important; padding-left:10px !important; }
+ .blog-post .blog-date { font-size:12px; text-transform:uppercase; color: #8e8e8e; }
+ .blog-post .blog-comments { font-size:12px; text-transform:uppercase; float:left !important; padding-left:10px !important; }
  .blog-post .blog-comments a { text-decoration:none; }
  .blog-post .blog-separator { border-bottom: 2px solid #ededed; margin-bottom: 13px !important; }
  .blog-post .blog-header { margin-bottom:13px !important; }
- .blog-sidebar { width: 260px; font-size:14px; font-weight:300; color:#8e8e8e; }
+ .blog-sidebar { width: 260px; font-size:12px; font-weight:300; color:#8e8e8e; }
  .blog-sidebar h2 { font-size:24px; font-weight:100; margin-bottom:5px !important; padding-bottom:10px; border-bottom: none; }
  .blog-sidebar a { text-decoration:none; }
  .blogCommentReplyWrapper, .blogCommentReplyWrapper iframe { min-height: 650px; }
@@ -149,8 +149,8 @@ img{-ms-interpolation-mode:bicubic}.wsite-placeholder{color:#a9a9a9}::-webkit-in
  .blogCommentHeading .blogCommentHeadingInner, .blogCommentWrap, .blogCommentHeading, .blogCommentHeading .blogCommentAuthor { background:none !important; }
  .blogCommentWrap { background: url(theme/images/comment-bubble-v1.png?1442641054) no-repeat top left !important; display: block; padding-left: 60px; }
  .blogCommentHeading { margin:0px; }
- .blogCommentHeading .blogCommentAuthor span.name, .blogCommentHeading .blogCommentAuthor a.name { color: #2b2b2b !important; font-size:14px; text-transform: capitalize; }
- .blogCommentHeading .blogCommentDate { color: #8e8e8e; float: left; font-size: 14px; padding: 0 9px 0 15px; text-align: left; text-shadow: none; text-transform:uppercase; }
+ .blogCommentHeading .blogCommentAuthor span.name, .blogCommentHeading .blogCommentAuthor a.name { color: #2b2b2b !important; font-size:12px; text-transform: capitalize; }
+ .blogCommentHeading .blogCommentDate { color: #8e8e8e; float: left; font-size: 12px; padding: 0 9px 0 15px; text-align: left; text-shadow: none; text-transform:uppercase; }
  .blogCommentText div.paragraph { font-size: 15px; color: #8e8e8e; font-weight:100; margin-bottom:15px; }
  .blogCommentText p { font-size: 15px; color: #8e8e8e; font-weight:100; margin-bottom:15px; }
  .wsite-form-label { margin: 0 0 10px !important; display: inline-block; }
@@ -229,7 +229,7 @@ img{-ms-interpolation-mode:bicubic}.wsite-placeholder{color:#a9a9a9}::-webkit-in
  #mobile-cart.highlight span { background: #fff; color: #26cfc1; }
  }
  @media (max-width: 767px) {
- body { font-size: 14px; }
+ body { font-size: 12px; }
  .wsite-multicol-col { max-width: 100% !important; display: block; width: auto !important; margin: 0 auto 1em !important; }
  .container { padding: 0 1.5em; }
  #banner h2 { font-size: 2em; }
